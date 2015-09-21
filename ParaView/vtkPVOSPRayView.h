@@ -61,6 +61,8 @@ public:
   virtual void SetAOSamples(int val);
   vtkGetMacro(AOSamples, int);
   virtual void SetSamples(int val);
+  vtkGetMacro(AORayLength, double);
+  virtual void SetAORayLength(double val);
   vtkGetMacro(Samples, int);
   virtual void SetMaxDepth(int val);
   vtkGetMacro(MaxDepth, int);
@@ -93,6 +95,7 @@ protected:
   int Samples;
   int MaxDepth;
 //  int OSPSuppressLOD;
+  double AORayLength;
 
 	vtkOSPRayRenderer *OSPRayRenderer;
   vtkQtProgressiveRenderer* ProgressiveRenderer;

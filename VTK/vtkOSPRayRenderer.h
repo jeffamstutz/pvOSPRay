@@ -84,9 +84,15 @@ public:
 
   //Description:
   //Sets the number of AO rays per-frame
-  //Default is 16.
+  //Default is 4.
   void SetAOSamples(int);
   vtkGetMacro(AOSamples, int);
+
+  //Description:
+  //Sets the ray length of AO secondary rays
+  //Default is 1e20.
+  void SetAORayLength(double);
+  vtkGetMacro(AORayLength, double);
 
   //Description:
   //Turns on or off shadow rendering.
@@ -216,6 +222,7 @@ private:
   int EnableShadows;
   int EnableAO;
   int AOSamples;
+  double AORayLength;
   int EnableVolumeShading;
   int Samples;
   int MaxDepth;

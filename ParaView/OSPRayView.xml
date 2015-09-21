@@ -70,17 +70,28 @@
         </Documentation>
       </IntVectorProperty>
 
-      <IntVectorProperty name="AOSamples"
+      <IntVectorProperty name="AO Samples"
         command="SetAOSamples"
         immediate_update="1"
         number_of_elements="1"
         panel_visibility="default"
-        default_values="16">
+        default_values="4">
         <IntRangeDomain name="range" min="1" max="16" />
         <Documentation>
           Controls number of AO samples taken per-frame.
         </Documentation>
       </IntVectorProperty>
+
+      <DoubleVectorProperty name="AO Ray Length"
+        command="SetAORayLength"
+        immediate_update="1"
+        number_of_elements="1"
+        panel_visibility="default"
+        default_values="1e20">
+        <Documentation>
+          Controls number of AO samples taken per-frame.
+        </Documentation>
+      </DoubleVectorProperty>
 
       <IntVectorProperty name="EnableProgressiveRefinement"
         command="SetEnableProgressiveRefinement"

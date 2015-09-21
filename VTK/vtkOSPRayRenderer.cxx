@@ -650,6 +650,12 @@ void vtkOSPRayRenderer::SetAOSamples(int newval)
   UpdateOSPRayRenderer();
 }
 
+void vtkOSPRayRenderer::SetAORayLength(double newval)
+{
+  this->AORayLength = newval;
+  UpdateOSPRayRenderer();
+}
+
 void vtkOSPRayRenderer::SetEnableVolumeShading( int newval )
 {
   EnableVolumeShading = newval;
@@ -679,6 +685,7 @@ void vtkOSPRayRenderer::UpdateOSPRayRenderer()
   ospCommit(oRenderer);
   
   ospSet1i(oRenderer, "aoSamples", AOSamples);
+  ospSet1f(oRenderer, "aoRayLength", AORayLength);
   ospSet1i(oRenderer,"spp",Samples);
   ospSet1f(oRenderer,"epsilon", 10e-2);
   ospSet1i(oRenderer,"shadowsEnabled", this->EnableShadows);
