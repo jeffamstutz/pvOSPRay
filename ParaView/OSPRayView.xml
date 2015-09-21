@@ -70,6 +70,18 @@
         </Documentation>
       </IntVectorProperty>
 
+      <IntVectorProperty name="AOSamples"
+        command="SetAOSamples"
+        immediate_update="1"
+        number_of_elements="1"
+        panel_visibility="default"
+        default_values="16">
+        <IntRangeDomain name="range" min="1" max="16" />
+        <Documentation>
+          Controls number of AO samples taken per-frame.
+        </Documentation>
+      </IntVectorProperty>
+
       <IntVectorProperty name="EnableProgressiveRefinement"
         command="SetEnableProgressiveRefinement"
         immediate_update="1"

@@ -644,6 +644,12 @@ void vtkOSPRayRenderer::SetEnableAO( int newval )
   
 }
 
+void vtkOSPRayRenderer::SetAOSamples(int newval)
+{
+  this->AOSamples = newval;
+  UpdateOSPRayRenderer();
+}
+
 void vtkOSPRayRenderer::SetEnableVolumeShading( int newval )
 {
   EnableVolumeShading = newval;
@@ -656,7 +662,7 @@ void vtkOSPRayRenderer::UpdateOSPRayRenderer()
   
   if (EnableAO != 0)
   {
-    this->OSPRayManager->OSPRayRenderer = (osp::Renderer*)ospNewRenderer("ao4");
+    this->OSPRayManager->OSPRayRenderer = (osp::Renderer*)ospNewRenderer("ao");
   }
   else
   {
@@ -672,6 +678,7 @@ void vtkOSPRayRenderer::UpdateOSPRayRenderer()
   ospSetObject(oRenderer,"camera",oCamera);
   ospCommit(oRenderer);
   
+  ospSet1i(oRenderer, "aoSamples", AOSamples);
   ospSet1i(oRenderer,"spp",Samples);
   ospSet1f(oRenderer,"epsilon", 10e-2);
   ospSet1i(oRenderer,"shadowsEnabled", this->EnableShadows);

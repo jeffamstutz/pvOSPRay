@@ -58,6 +58,8 @@ public:
   vtkGetMacro(EnableShadows, int);
   virtual void SetEnableAO(int val);
   vtkGetMacro(EnableAO, int);
+  virtual void SetAOSamples(int val);
+  vtkGetMacro(AOSamples, int);
   virtual void SetSamples(int val);
   vtkGetMacro(Samples, int);
   virtual void SetMaxDepth(int val);
@@ -87,6 +89,7 @@ protected:
   int EnableProgressiveRefinement;
   int EnableVolumeShading;
   int Threads;
+  int AOSamples;
   int Samples;
   int MaxDepth;
 //  int OSPSuppressLOD;

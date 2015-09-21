@@ -77,11 +77,17 @@ public:
   vtkGetMacro(EnableShadows, int);
 
     //Description:
-  //Turns on or off shadow rendering.
+  //Turns on or off AO rendering.
   //Default is off.
   void SetEnableAO(int);
   vtkGetMacro(EnableAO, int);
-  
+
+  //Description:
+  //Sets the number of AO rays per-frame
+  //Default is 16.
+  void SetAOSamples(int);
+  vtkGetMacro(AOSamples, int);
+
   //Description:
   //Turns on or off shadow rendering.
   //Default is off.
@@ -209,6 +215,7 @@ private:
   int NumberOfWorkers;
   int EnableShadows;
   int EnableAO;
+  int AOSamples;
   int EnableVolumeShading;
   int Samples;
   int MaxDepth;

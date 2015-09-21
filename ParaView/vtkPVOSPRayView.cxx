@@ -152,6 +152,13 @@ void vtkPVOSPRayView::SetEnableAO(int newval)
   renderer->SetEnableAO(this->EnableAO);
 }
 
+void vtkPVOSPRayView::SetAOSamples(int val)
+{
+  this->AOSamples = val;
+  vtkOSPRayRenderer *renderer = vtkOSPRayRenderer::SafeDownCast(this->RenderView->GetRenderer());
+  renderer->SetAOSamples(val);
+}
+
 void vtkPVOSPRayView::SetEnableProgressiveRefinement(int newval)
 {
   if (newval != EnableProgressiveRefinement)
